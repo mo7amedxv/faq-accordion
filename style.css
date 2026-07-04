@@ -1,0 +1,172 @@
+:root {
+  font-size: 1rem;
+  --white: hsl(0, 100%, 100%);
+  --purple-100: hsl(275, 100%, 97%);
+  --purple-600: hsl(292, 16%, 49%);
+  --purple-950: hsl(292, 42%, 14%);
+  --color-bg-page: var(--purple-100);
+  --color-bg-hero: var(--purple-950);
+  --color-card-bg: var(--white);
+  --color-title: var(--purple-950);
+  --color-question: var(--purple-950);
+  --color-question-active: hsla(281, 83%, 54%, 1);
+  --color-answer: var(--purple-600);
+  --color-divider: var(--purple-100);
+  --color-toggle-bg: var(--purple-600);
+  --color-toggle-icon: var(--white);
+  --color-toggle-minus-bg: var(--purple-950);
+  --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  --font-family-base: "Work Sans", sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --body-font-size: clamp(0.9375rem, calc(0.9375rem + 0.3vw), 1rem);
+  --card-width: clamp(20rem, 90vw, 45rem);
+  --card-radius: 1rem;
+  --card-padding: clamp(1.5rem, calc(1.5rem + 1.5vw), 2.5rem);
+  --icon-size: clamp(2rem, calc(2rem + 0.75vw), 2.5rem);
+  --icon-gap: 0.75rem;
+  --title-font-size: clamp(1.5rem, calc(1.5rem + 0.45vw), 1.8rem);
+  --title-line-height: 1.2;
+  --header-margin-bottom: clamp(1.5rem, calc(1.5rem + 1.5vw), 2.5rem);
+  --question-font-size: clamp(0.9375rem, calc(0.9375rem + 0.3vw), 1rem);
+  --question-line-height: 1.4;
+  --answer-font-size: clamp(0.9375rem, calc(0.9375rem + 0.3vw), 1rem);
+  --answer-line-height: 1.6;
+  --answer-margin-top: 0.75rem;
+  --answer-padding-right: clamp(1rem, calc(1rem + 1.5vw), 2rem);
+  --item-padding-y: clamp(1rem, calc(1rem + 0.75vw), 1.5rem);
+  --item-gap-toggle: 1rem;
+  --item-divider-width: 0.0625rem;
+  --toggle-size: clamp(1.25rem, calc(1.25rem + 0.38vw), 1.5rem);
+  --toggle-radius: 50%;
+  --breakpoint-mobile: 23.4375rem;
+  --breakpoint-desktop: 90rem;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+@font-face {
+  font-family: "Work Sans";
+  src: url("./fonts/static/WorkSans-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("./fonts/static/WorkSans-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Work Sans";
+  src: url("./fonts/static/WorkSans-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+}
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
+body {
+  background: var(--color-divider);
+  font-family: var(--font-family-base);
+  min-height: 100svh;
+  position: relative;
+  color: var(--purple-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40vh;
+  background: url("assets/images/background-pattern-desktop.svg") center/cover
+    no-repeat;
+  z-index: -1;
+}
+.container {
+  margin: 0 auto 0.5rem auto;
+  width: var(--card-width);
+}
+.card {
+  max-width: 100%;
+  background-color: var(--white);
+  margin: 0 auto;
+  padding: var(--card-padding);
+  box-shadow: var(--shadow);
+  border-radius: var(--card-radius);
+}
+.card-header {
+  display: flex;
+  gap: var(--icon-gap);
+  font-size: var(--title-font-size);
+  align-items: center;
+  margin-bottom: var(--header-margin-bottom);
+}
+.card-image-wrapper img {
+  width: var(--icon-size);
+  height: var(--icon-size);
+}
+.card-image-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 768px) {
+  body::before {
+    background: url("assets/images/background-pattern-mobile.svg") center/cover
+      no-repeat;
+  }
+}
+.faq-question {
+  background-color: transparent;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  padding-block: var(--item-padding-y);
+  gap: var(--item-gap-toggle);
+}
+.faq-question-text {
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-question);
+  font-size: var(--question-font-size);
+  text-align: left;
+}
+.faq-question:hover .faq-question-text {
+  color: var(--color-question-active);
+}
+.faq-item {
+  margin-bottom: var(--answer-margin-top);
+}
+.faq-item:not(:last-child) {
+  border-bottom: 0.1px solid #e5e5e573;
+}
+.faq-answer {
+  color: var(--color-answer);
+  padding-bottom: var(--item-padding-y);
+  display: none;
+  font-size: var(--answer-font-size);
+}
+.icon {
+  width: var(--icon-size);
+}
+.faq-item.active .faq-answer {
+  display: block;
+}
