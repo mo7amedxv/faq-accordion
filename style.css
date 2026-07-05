@@ -1,5 +1,5 @@
 :root {
-  font-size: clamp(0.85rem, 1rem, 1.1rem);
+  --font-size: clamp(0.55rem, 0.65rem, 0.75rem);
   --white: hsl(0, 100%, 100%);
   --purple-100: hsl(275, 100%, 97%);
   --purple-600: hsl(292, 16%, 49%);
@@ -71,8 +71,9 @@
   font-style: normal;
 }
 .attribution {
-  font-size: var(--body-font-size);
+  font-size: var(--font-size);
   text-align: center;
+  padding: var(--item-padding-y);
   color: var(--purple-950);
 }
 .attribution a {
@@ -141,6 +142,7 @@ body::before {
   cursor: pointer;
   padding-block: var(--item-padding-y);
   gap: var(--item-gap-toggle);
+  font-size: var(--question-font-size);
   text-align: start;
 }
 .faq-question-text {
